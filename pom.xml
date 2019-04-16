@@ -266,7 +266,7 @@
             <overwrite>true</overwrite>
           </configuration>
         </plugin>
-        <!-- geelynote maven的核心插件之-complier插件默认只支持编译Java 1.4，因此需要加上支持高版本jre的配置，在pom.xml里面加上 增加编译插件 -->
+        <!-- maven的核心插件之-complier插件默认只支持编译Java 1.4，因此需要加上支持高版本jre的配置，在pom.xml里面加上 增加编译插件 -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
@@ -274,6 +274,8 @@
             <source>1.8</source>
             <target>1.8</target>
             <encoding>UTF-8</encoding>
+            <!--下面这个属性的意思是 在把项目打包发布到服务器上的时候，会把本地的Jar包复制到项目的lib文件夹下同时上传到服务器-->
+            <!--不然的话在服务器上运行会出现class not found的错误-->
             <compilerArguments>
               <extdirs>${project.basedir}/src/main/webapp/WEB-INF/lib</extdirs>
             </compilerArguments>
